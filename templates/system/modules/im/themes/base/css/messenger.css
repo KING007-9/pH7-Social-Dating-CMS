@@ -91,3 +91,21 @@
 .chatboxmessagefrom, .chatboxtitle, .chatboxoptions a {
     font-weight: bold;
 }
+
+@media (max-width: 575px) {
+    .chatbox {
+        width: 100vw;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+    }
+
+    .chatboxcontent {
+        overflow-x: hidden;
+    }
+
+    .chatboxtextarea {
+        width: calc(100vw - 24px);
+        max-width: 100%;
+    }
+}

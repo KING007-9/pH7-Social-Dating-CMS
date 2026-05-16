@@ -8,11 +8,18 @@
     background: url(../img/heart.png) no-repeat;
     font: 55px Verdana, Geneva, Arial, Helvetica, sans-serif;
     color: yellow;
-    height: 140px;
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 25 / 14;
     font-weight: bold;
-    padding-top: 65px;
+    padding-top: 0;
     box-sizing: content-box;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calculator-wrapper {

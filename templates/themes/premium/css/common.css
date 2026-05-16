@@ -225,8 +225,9 @@ label#percent {
 }
 
 .thumb_photo img {
-    width: 160px;
-    height: 150px;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .s_photo {
@@ -235,8 +236,8 @@ label#percent {
 }
 
 .s_photo img {
-    width: 62px;
-    height: 62px;
+    width: 100%;
+    height: auto;
 }
 
 .m_photo {
@@ -245,8 +246,8 @@ label#percent {
 }
 
 .m_photo img {
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    height: auto;
 }
 
 .m_video {
@@ -284,6 +285,7 @@ label#percent {
 .picture a {
     background-position: center center;
     background-color: rgba(14, 14, 14, 0.3);
+    background-size: cover;
     float: left;
     height: 110px;
     width: 145px;
@@ -306,8 +308,11 @@ label#percent {
 }
 
 .img_picture {
-    height: 200px;
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
 }
@@ -325,7 +330,12 @@ label#percent {
     border: 1px solid #999;
 }
 
-img, video, iframe {
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
     max-width: 100%;
 }
 
@@ -347,7 +357,8 @@ img, video, iframe {
 /* 980px or more */
 @media (min-width: 980px) {
     header, #content {
-        width: 78%;
+        width: 100%;
+        max-width: 1200px;
     }
 
     .picture_block {
@@ -358,7 +369,7 @@ img, video, iframe {
 /* 979px or less */
 @media (max-width: 979px) {
     body {
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: auto;
     }
 
@@ -376,11 +387,8 @@ img, video, iframe {
 /* 900px or more */
 @media (min-width: 900px) {
     .profile_desc {
-        float: right;
-        max-width: 500px;
-        margin-left: 25%;
-        position: absolute;
-        top: 25rem;
+        max-width: 720px;
+        margin-top: 20px;
     }
 
     .profile_desc .punchline {
@@ -408,5 +416,17 @@ img, video, iframe {
 
     .profile_desc .punchline {
         display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .center, .middle {
+        width: auto;
+    }
+
+    .picture a {
+        width: calc(50% - 2px);
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 }

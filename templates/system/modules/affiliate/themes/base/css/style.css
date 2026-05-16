@@ -6,12 +6,14 @@
 
 #make_money {
     background: url(../img/make-money.svg) no-repeat;
-    margin: 20px;
-    width: 300px;
-    height: 250px;
-    margin: 2px 2px 2px 2px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    margin: 2px;
     border: 1px solid #999;
     border-radius: 5px;
+    background-size: cover;
 }
 
 .aff_login {

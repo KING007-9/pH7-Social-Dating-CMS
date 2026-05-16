@@ -208,12 +208,8 @@
     font-size: .8em;
 }
 
-.box-left {
-    float: left;
-}
-
-.box-right {
-    float: right;
+.box-left, .box-right {
+    float: none;
 }
 
 .icon-wrap i {
@@ -223,35 +219,6 @@
 }
 
 /*** Overwrite with media queries for small devices ***/
-/* 1200px or less */
-@media (max-width: 1200px) {
-    .box-right {
-        width: 600px;
-    }
-}
-
-/* 1075px or less */
-@media (max-width: 1075px) {
-    .box-right {
-        width: 550px;
-    }
-}
-
-/* 1010px or less */
-@media (max-width: 1010px) {
-    .box-right {
-        width: 500px;
-    }
-}
-
-/* 985px or less */
-@media (max-width: 985px) {
-    .box-right {
-        width: 530px;
-    }
-}
-
-/* 745px or less */
 @media (max-width: 770px) {
     .box-left {
         display: none;

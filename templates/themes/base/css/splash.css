@@ -143,14 +143,16 @@ video#bgvid {
 }
 
 .login_block {
-    margin: -52px 0 10px 52%;
-    width: 580px;
+    margin: -52px 0 10px auto;
+    width: 100%;
+    max-width: 580px;
 }
 
 /* Slideshow */
 .window {
     height: 300px;
-    width: 590px;
+    width: 100%;
+    max-width: 590px;
 }
 
 .profiles_window {
@@ -161,8 +163,7 @@ video#bgvid {
 
 .img_reel img {
     float: left;
-    height: 300px;
-    width: 584px;
+    height: 100%;
 }
 
 /* Make sure Bootstrap "alert" message is always well displayed */
@@ -195,7 +196,8 @@ video#bgvid {
 @media (max-width: 1230px) {
     .window {
         height: 200px;
-        width: 393px;
+        width: 100%;
+        max-width: 393px;
     }
 
     .profiles_window {
@@ -206,8 +208,7 @@ video#bgvid {
 
     .img_reel img {
         float: left;
-        height: 200px;
-        width: 393px;
+        height: 100%;
     }
 }
 
@@ -218,6 +219,10 @@ video#bgvid {
         margin-left: auto;
         margin-right: auto;
         width: 80%;
+    }
+
+    .window {
+        max-width: 100%;
     }
 
     .center {

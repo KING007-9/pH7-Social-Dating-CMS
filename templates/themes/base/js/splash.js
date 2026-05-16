@@ -8,13 +8,28 @@
 $(".paging").show();
 $(".paging a:first").addClass("active");
 
-// Get size of images, how many there are, then determine the size of the image reel.
-var iImgWidth = $(".img_reel").width();
-var iImgSum = $(".img_reel img").size() + 1;
-var iImgReelWidth = iImgWidth * iImgSum;
+var iImgWidth;
+var iImgSum;
+var iImgReelWidth;
 
-// Adjust the image reel to its new size
-$(".img_reel").css({'width': iImgReelWidth});
+var setImgReelSize = function () {
+    iImgWidth = $(".window").width() || $(".img_reel").width();
+    iImgSum = $(".img_reel img").length + 1;
+    iImgReelWidth = iImgWidth * iImgSum;
+
+    $(".img_reel img").css({'width': iImgWidth});
+    $(".img_reel").css({'width': iImgReelWidth});
+
+    if (typeof $active !== "undefined" && $active && $active.length) {
+        var iTriggerId = $active.attr("rel") - 1;
+        $(".img_reel").css({left: -(iTriggerId * iImgWidth)});
+    }
+};
+
+setImgReelSize();
+$(window).on("resize", function () {
+    setImgReelSize();
+});
 
 // Paging + Slider Function
 rotate = function () {

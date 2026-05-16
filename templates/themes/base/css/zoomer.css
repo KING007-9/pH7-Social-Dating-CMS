@@ -1,25 +1,26 @@
 ul.zoomer_pic {
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 ul.zoomer_pic li {
     margin: 0;
-    padding: 5px;
-    float: left;
+    padding: 0;
     position: relative;
-    width: 110px;
-    height: 110px;
+    flex: 0 0 calc(33.333% - 10px);
 }
 
 ul.zoomer_pic li img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: auto;
     border: 1px solid #ddd;
     padding: 5px;
     background: #f0f0f0;
-    position: absolute;
-    left: 0;
-    top: 0;
+    display: block;
+    box-sizing: border-box;
     -ms-interpolation-mode: bicubic;
 }
 
@@ -39,4 +40,16 @@ ul.zoomer_pic li img.hover {
     padding: 17px 0 0 0;
     text-align: center;
     color: #fff;
+}
+
+@media (max-width: 480px) {
+    ul.zoomer_pic li {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 320px) {
+    ul.zoomer_pic li {
+        flex: 0 0 100%;
+    }
 }

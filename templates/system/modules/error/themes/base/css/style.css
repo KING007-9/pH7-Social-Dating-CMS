@@ -6,8 +6,12 @@
 
 .error-image {
     background: url(../img/page-not-found.png) no-repeat;
-    height: 260px;
-    width: 260px;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    aspect-ratio: 1 / 1;
     margin-top: 20px;
     margin-bottom: 10px;
+    background-size: contain;
+    background-position: center;
 }
