@@ -16,6 +16,7 @@ defined('PH7') or exit('Restricted access');
 
 use PDO;
 use PDOStatement;
+use RuntimeException;
 use Throwable;
 
 /**
@@ -104,7 +105,7 @@ class Db
                 self::$oDb = new PDO(self::$sDsn, self::$sUsername, self::$sPassword, self::$aDriverOptions);
                 self::$oDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (Throwable $oE) {
-                exit(self::ERROR_MESSAGE);
+                throw new RuntimeException(self::ERROR_MESSAGE, 0, $oE);
             }
 
             static::checkMySqlVersion();

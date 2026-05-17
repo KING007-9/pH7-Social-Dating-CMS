@@ -97,7 +97,15 @@ final class FrontController
          * @internal We initialize the database after the compression of static files (self::gzipRouter() method),
          * so we can always display static files even if there are problems with the database.
          */
-        $this->_initializeDatabase();
+        if (empty($this->oConfig->values['database'])) {
+            $this->handleMissingDatabaseConfig();
+        }
+
+        try {
+            $this->_initializeDatabase();
+        } catch (\Throwable) {
+            $this->handleMissingDatabaseConfig();
+        }
 
         /**
          * @internal self::initializeLanguage() method must be declared before the others, because it initializes the main language constants for the rest of the code.
@@ -111,6 +119,20 @@ final class FrontController
         $this->launchRewritingRouter();
 
         $this->launchNonRewritingRouters();
+    }
+
+    private function handleMissingDatabaseConfig(): void
+    {
+        if (is_dir(PH7_PATH_ROOT . '_install/')) {
+            header('Location: ' . PH7_RELATIVE . '_install/');
+            exit;
+        }
+
+        echo \PH7\html_body(
+            'Setup required',
+            '<p class="warning">Setup required</p><p class="error">Database connection is not configured or is unreachable.</p><p>Please configure your database settings in <b>_protected/app/configs/config.ini</b> (section <b>[database]</b>) and ensure MySQL/MariaDB is running.</p>'
+        );
+        exit;
     }
 
     /**

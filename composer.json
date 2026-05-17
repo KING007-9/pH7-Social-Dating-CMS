@@ -112,11 +112,11 @@
     ],
     "post-install-cmd": [
       "@post-cmd",
-      "@composer install --working-dir _install"
+      "@php _tools/composer-install-install.php install"
     ],
     "post-update-cmd": [
       "@post-cmd",
-      "@composer update --working-dir _install"
+      "@php _tools/composer-install-install.php update"
     ]
   },
   "minimum-stability": "stable",
